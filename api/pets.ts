@@ -16,3 +16,19 @@ export const getOnePet = async (id: number) => {
   const response = await api.get(`/pets/${id}`);
   return response.data;
 };
+
+export const addPet = async (pet: {
+  name: string;
+  description: string;
+  image: string;
+  type: string;
+  adopted: boolean;
+}) => {
+  const response = await api.post("/pets", pet);
+  return response.data;
+};
+
+export const deletePet = async (id: number) => {
+  const response = await api.delete(`/pets/${id}`);
+  return response.data;
+};
